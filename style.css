@@ -1,0 +1,79 @@
+/* google font 'Noto Sans' */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+:root{
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    
+    --primary-font: #fff;
+
+    --main-bg: rgb(35, 30, 54);
+    --main-bg-light: rgb(194, 181, 240);
+
+    --app-bg: rgb(68, 67, 67);
+    --app-bg-light: rgb(216, 216, 180);
+
+    --main-display: rgb(29, 22, 56);
+    --history-display: rgb(92, 92, 92);
+
+}
+
+body{
+    margin:0px;
+    padding:0px;
+
+    color: var(--primary-font);
+
+    background-color: var(--main-bg);
+    transition: 600ms;
+}
+
+
+#app-container{
+    margin: 10% auto;
+    width: 400px;
+    height: 350px;
+    
+    background-color:  var(--app-bg);
+}
+
+#display-container{
+    display: flex;
+    flex-direction: row;
+
+    background-color: var(--app-bg);
+
+    font-size: 20px;
+    height: 80px;
+}
+
+#current-display{
+    width: 90%;
+    height: 50px;
+    margin:10px auto;
+    
+    background-color: var(--main-display);
+}
+
+#history-display{
+    width: 20%;
+
+    background-color: var(--history-display);
+}
+
+#btn-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#num-container, #fn-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.num-btn, .func-btn{
+    width: 50px;
+    height: 50px;
+}
