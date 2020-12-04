@@ -19,11 +19,14 @@
     --history-display: rgb(92, 92, 92);
 
 
-    --submit-bg:  rgb(165, 82, 130);
+    --submit-bg:  rgb(114, 53, 89);
     --submit-bg-light:  rgb(252, 167, 216);
 
     --clear-bg:  rgb(155, 134, 66);
     --clear-bg-light:  rgb(242, 253, 86);
+
+    --btn-bg:rgb(23, 18, 61);
+    --btn-bg-light: rgb(168, 168, 168);
 }
 
 body{
@@ -35,6 +38,7 @@ body{
     background-color: var(--main-bg);
     transition: 600ms;
 }
+
 
 
 #app-container{
@@ -107,27 +111,39 @@ body{
     justify-content: space-around;
 }
 
-
 #fn-container{
     width:20%;
 }
 
 
+
 .num-btn, .func-btn, .submit, .clear{
     border-radius: 10px;
-    border:2px solid var(--main-display);
+    border:2px solid var(--history-display);
     margin: 1px;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-font);
 }
 
 .num-btn{
     width: 65px;
     height: 65px;
+    font-size: 20px;
+    font-weight: bold;
+
+    color: var(--primary-font);
+    background-color: var(--btn-bg);
 }
 
 .func-btn{
     width: 60px;
     height:40px;
+
+    background-color: var(--btn-bg);
 }
+
 
 .clear{
     width: 60px;
