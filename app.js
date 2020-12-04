@@ -56,7 +56,6 @@ function createButtons(){
     }
 }
 
-
 // calculator logic
 function calculate(arg){
     let result = '';
@@ -87,7 +86,7 @@ function hideHistory(){
     else{
         historyDisplay.style.width = "30%"
         historyDisplay.style.display = 'block';
-        curDisplay.style.width = "60%";
+        curDisplay.style.width = "50%";
     }
 }
 
@@ -118,6 +117,11 @@ btnCont.addEventListener('click', (e)=>{
 
         console.info("func-btn", target)
         num1 = curDisplay.textContent;
+
+        if(num1 == ''){
+           num1 = 0
+        }
+        
         operator = target.textContent;
         curDisplay.textContent = '';
         historyDisplay.innerHTML = `${num1} ${operator}`;
@@ -138,6 +142,11 @@ btnCont.addEventListener('click', (e)=>{
 
         console.info("func-btn", target)
         num2 = curDisplay.textContent
+        
+        if(num2 == ''){
+           num2 = 0
+        }
+                
         curDisplay.textContent = calculate(operator);
         historyDisplay.innerHTML = `${num1} ${operator} ${num2} =`;
     }

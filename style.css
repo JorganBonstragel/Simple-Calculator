@@ -6,6 +6,8 @@
     font-size: 16px;
     
     --primary-font: #fff;
+    --primary-light: rgb(65, 65, 65);
+
 
     --main-bg: rgb(35, 30, 54);
     --main-bg-light: rgb(194, 181, 240);
@@ -13,9 +15,15 @@
     --app-bg: rgb(68, 67, 67);
     --app-bg-light: rgb(216, 216, 180);
 
-    --main-display: rgb(29, 22, 56);
+    --main-display: rgb(43, 43, 43);
     --history-display: rgb(92, 92, 92);
 
+
+    --submit-bg:  rgb(165, 82, 130);
+    --submit-bg-light:  rgb(252, 167, 216);
+
+    --clear-bg:  rgb(155, 134, 66);
+    --clear-bg-light:  rgb(242, 253, 86);
 }
 
 body{
@@ -31,16 +39,17 @@ body{
 
 #app-container{
     margin: 10% auto;
-    width: 400px;
-    height: 350px;
-    
+    max-width: 350px;
+    height: auto;
+    border-radius: 20px;
+
     background-color:  var(--app-bg);
 }
 
 #display-container{
     display: flex;
     flex-direction: row;
-
+    
     background-color: var(--app-bg);
 
     font-size: 22px;
@@ -48,30 +57,38 @@ body{
 }
 
 #current-display{
-    height: 50px;
+    max-height: 60px;
     margin:10px auto;
-    padding:5px;
-
-    overflow: auto;
+    padding-top:4%;
+    padding-right: 4%;
+    
+    overflow-x: auto;
     text-align: right;
     background-color: var(--main-display);
+    border:2px solid var(--history-display);
 }
 
 #history-display{
-    overflow: auto;
-    height:50px;
+    overflow-x: auto;
+    max-height:50px;
     margin:10px;
     padding:5px;
+    padding-top: 4%;
 
     text-align: center;
+
+    border:2px solid var(--main-display);
     background-color: var(--history-display);
+
+    transition: width 600ms;
 }
 
 #btn-container{
     display: flex;
     flex-direction: row;
-
-
+    justify-content: space-between;
+    
+    padding: 10px;
 }
 
 #num-container, #fn-container{
@@ -80,12 +97,48 @@ body{
 }
 
 #num-container{
-    width: 80%;
-    margin-left:15px;
+    margin:0 auto;
+    width: 55%;
+}
+
+#r4, #r1, #r3, #r2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 
-.num-btn, .func-btn{
-    width: 50px;
-    height: 50px;
+#fn-container{
+    width:20%;
+}
+
+
+.num-btn, .func-btn, .submit, .clear{
+    border-radius: 10px;
+    border:2px solid var(--main-display);
+    margin: 1px;
+}
+
+.num-btn{
+    width: 65px;
+    height: 65px;
+}
+
+.func-btn{
+    width: 60px;
+    height:40px;
+}
+
+.clear{
+    width: 60px;
+    height: 30px;
+
+    background-color: var(--clear-bg);
+}
+
+.submit{
+    height: 70px;
+    width: 60px;
+
+    background-color:  var(--submit-bg);
 }
