@@ -80,10 +80,14 @@ function calculate(arg){
 // hide history when empty
 function hideHistory(){
     if(historyDisplay.textContent == ''){
+        historyDisplay.style.width = "0px"
         historyDisplay.style.display = 'none';
+        curDisplay.style.width = "90%";
     }
     else{
+        historyDisplay.style.width = "30%"
         historyDisplay.style.display = 'block';
+        curDisplay.style.width = "60%";
     }
 }
 
@@ -102,8 +106,7 @@ btnCont.addEventListener('click', (e)=>{
     currentStr = curDisplay.textContent
     memory = historyDisplay.textContent
 
-    // refresh history
-    hideHistory();
+    
 
     if(target.className == "num-btn"){
 
@@ -118,6 +121,7 @@ btnCont.addEventListener('click', (e)=>{
         operator = target.textContent;
         curDisplay.textContent = '';
         historyDisplay.innerHTML = `${num1} ${operator}`;
+        hideHistory();
 
     }
     else if(target.className == "clear"){
@@ -125,7 +129,9 @@ btnCont.addEventListener('click', (e)=>{
         console.info("func-btn", target)
         num1 = 0
         num2 = 0
-        curDisplay.textContent = "cleared"
+        historyDisplay.textContent = '';
+        curDisplay.textContent = ''
+        hideHistory();
 
     }
     else if(target.className == "submit"){

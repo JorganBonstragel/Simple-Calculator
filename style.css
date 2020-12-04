@@ -43,27 +43,35 @@ body{
 
     background-color: var(--app-bg);
 
-    font-size: 20px;
+    font-size: 22px;
     height: 80px;
 }
 
 #current-display{
-    width: 90%;
     height: 50px;
     margin:10px auto;
-    
+    padding:5px;
+
+    overflow: auto;
+    text-align: right;
     background-color: var(--main-display);
 }
 
 #history-display{
-    width: 20%;
+    overflow: auto;
+    height:50px;
+    margin:10px;
+    padding:5px;
 
+    text-align: center;
     background-color: var(--history-display);
 }
 
 #btn-container{
     display: flex;
     flex-direction: row;
+
+
 }
 
 #num-container, #fn-container{
@@ -71,6 +79,10 @@ body{
     flex-direction: column;
 }
 
+#num-container{
+    width: 80%;
+    margin-left:15px;
+}
 
 
 .num-btn, .func-btn{
