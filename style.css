@@ -8,25 +8,33 @@
     --primary-font: #fff;
     --primary-light: rgb(65, 65, 65);
 
-
     --main-bg: rgb(35, 30, 54);
-    --main-bg-light: rgb(194, 181, 240);
+    --main-bg-light: rgb(144, 179, 112);
 
     --app-bg: rgb(68, 67, 67);
-    --app-bg-light: rgb(216, 216, 180);
+    --app-bg-light: rgb(187, 187, 187);
+
+    --display-cont:rgb(117, 117, 117);
+    --display-cont-light: rgb(119, 119, 119);
 
     --main-display: rgb(43, 43, 43);
-    --history-display: rgb(92, 92, 92);
+    --main-display-light: rgb(43, 43, 43);
 
+    --history-bg: rgb(92, 92, 92);
+    --history-bg-light:rgb(187, 207, 189);
 
-    --submit-bg:  rgb(114, 53, 89);
-    --submit-bg-light:  rgb(252, 167, 216);
+    --submit-bg:  rgb(44, 93, 253);
+    --submit-bg-light:  rgb(95, 119, 199);
 
-    --clear-bg:  rgb(155, 134, 66);
-    --clear-bg-light:  rgb(242, 253, 86);
+    --clear-bg:  rgb(106, 4, 153);
+    --clear-bg-light:   rgb(165, 69, 209);
 
-    --btn-bg:rgb(23, 18, 61);
+    --btn-bg:rgb(37, 37, 37);
     --btn-bg-light: rgb(168, 168, 168);
+
+    --fnc-bg:rgb(224, 85, 31);
+    --fnc-light:rgb(255, 145, 102);
+   
 }
 
 body{
@@ -34,8 +42,8 @@ body{
     padding:0px;
 
     color: var(--primary-font);
-
     background-color: var(--main-bg);
+    
     transition: 600ms;
 }
 
@@ -46,15 +54,21 @@ body{
     max-width: 350px;
     height: auto;
     border-radius: 20px;
-
+    
     background-color:  var(--app-bg);
+
+    box-shadow: 14px 14px 12px 4px rgba(0, 0, 0, .3);
+
+    transition: 600ms;
 }
 
 #display-container{
     display: flex;
     flex-direction: row;
     
-    background-color: var(--app-bg);
+    background-color: var(--display-cont);
+
+    transition: 600ms;
 
     font-size: 22px;
     height: 80px;
@@ -69,7 +83,9 @@ body{
     overflow-x: auto;
     text-align: right;
     background-color: var(--main-display);
-    border:2px solid var(--history-display);
+    border:2px solid var(--history-bg);
+
+    transition: 600ms;
 }
 
 #history-display{
@@ -82,8 +98,9 @@ body{
     text-align: center;
 
     border:2px solid var(--main-display);
-    background-color: var(--history-display);
+    background-color: var(--history-bg);
 
+    
     transition: width 600ms;
 }
 
@@ -119,12 +136,14 @@ body{
 
 .num-btn, .func-btn, .submit, .clear{
     border-radius: 10px;
-    border:2px solid var(--history-display);
+    border:2px solid var(--history-bg);
     margin: 1px;
 
     font-size: 20px;
     font-weight: bold;
     color: var(--primary-font);
+
+    transition: 600ms;
 }
 
 .num-btn{
@@ -135,13 +154,17 @@ body{
 
     color: var(--primary-font);
     background-color: var(--btn-bg);
+
+    transition: 600ms;
 }
 
 .func-btn{
     width: 60px;
     height:40px;
 
-    background-color: var(--btn-bg);
+    background-color: var(--fnc-bg);
+
+    transition: 600ms;
 }
 
 
@@ -150,6 +173,8 @@ body{
     height: 30px;
 
     background-color: var(--clear-bg);
+
+    transition: 600ms;
 }
 
 .submit{
@@ -157,4 +182,8 @@ body{
     width: 60px;
 
     background-color:  var(--submit-bg);
+
+    transition: 600ms;
 }
+
+

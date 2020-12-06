@@ -3,7 +3,8 @@ const curDisplay = document.getElementById('current-display')
 const historyDisplay = document.getElementById('history-display')
 const btnCont = document.getElementById('btn-container');
 const numCont = document.getElementById('num-container')
-const fnCont = document.getElementById('fn-container')
+const fnCont = document.getElementById('fn-container');
+const drkToggle = document.getElementById('switch');
 
 const r1 = document.getElementById('r1')
 const r2 = document.getElementById('r2')
@@ -45,9 +46,11 @@ function createButtons(){
         // sort out non-operator buttons
         if(item.textContent == '='){
             item.className = "submit"
+            item.id = "submit"
         }
         else if(item.textContent == 'c'){
             item.className = "clear"
+            item.id = "clear"
         }
         else{
             item.className = "func-btn"
@@ -98,6 +101,81 @@ window.addEventListener('DOMContentLoaded', ()=>{
     hideHistory();
 })
 
+
+
+// Dark/light mode toggle (THERE IS NO GOD)
+drkToggle.addEventListener('change', (e) =>{
+
+    console.info("toggle Dark mode")
+    
+    const body = document.body;
+    const appCont = document.getElementById('app-container');
+    const displayCont = document.getElementById('display-container')
+    const numButtons = document.getElementsByClassName('num-btn')
+    const funcButtons = document.getElementsByClassName('func-btn')
+    const clear = document.getElementById('clear')
+    const submit = document.getElementById('submit')       
+
+    // Light Mode
+    if(drkToggle.checked){
+        // container backgrounds
+       body.style.backgroundColor = "var(--main-bg-light)";
+       appCont.style.backgroundColor = "var(--app-bg-light)";
+       displayCont.style.backgroundColor = "var(--display-cont-light)"
+        // main display
+       curDisplay.style.backgroundColor = "var(--app-bg-light)";
+       curDisplay.style.color = "var(--primary-light)";
+        // history display
+       historyDisplay.style.backgroundColor = "var(--history-bg-light)"
+       historyDisplay.style.color = "var(--primary-light)" 
+        //num buttons
+        for (let i = 0; i < numButtons.length; i++){
+            numButtons[i].style.backgroundColor = "var(--btn-bg-light)";
+            numButtons[i].style.color = "var(--primary-light)";
+        };
+        // func buttons
+        for (let i = 0; i < funcButtons.length; i++){
+            funcButtons[i].style.backgroundColor = "var(--fnc-light)";
+            funcButtons[i].style.color = "var(--primary-light)";
+        };
+        // clear button
+        clear.style.backgroundColor = "var(--clear-bg-light)"
+        // submit button
+        submit.style.backgroundColor = "var(--submit-bg-light)"
+    }   
+    // (KILL ME) 
+    
+    // Dark Mode
+    else{
+        // container backgrounds
+        body.style.backgroundColor = "var(--main-bg)";
+        appCont.style.backgroundColor = "var(--app-bg)";
+        displayCont.style.backgroundColor = "var(--display-cont)"
+        // main display
+        curDisplay.style.backgroundColor = "var(--app-bg)";
+        curDisplay.style.color = "var(--primary-font)";
+        // history display
+        historyDisplay.style.backgroundColor = "var(--history-bg)"
+        historyDisplay.style.color = "var(--primary-font)"
+        //num buttons
+        for (let i = 0; i < numButtons.length; i++){
+            numButtons[i].style.backgroundColor = "var(--btn-bg)"
+            numButtons[i].style.color = "var(--primary-font)";
+        }
+        // func buttons
+        for (let i = 0; i < funcButtons.length; i++){
+            funcButtons[i].style.backgroundColor = "var(--fnc-bg)";
+            funcButtons[i].style.color = "var(--primary-font)";
+        }
+        // clear button
+        clear.style.backgroundColor = "var(--clear-bg)"
+        // submit button
+        submit.style.backgroundColor = "var(--submit-bg)"
+    }
+
+})
+
+
 // primary event listener
 btnCont.addEventListener('click', (e)=>{
     // local variables
@@ -106,28 +184,29 @@ btnCont.addEventListener('click', (e)=>{
     memory = historyDisplay.textContent
 
     
-
+    // add numbers to display
     if(target.className == "num-btn"){
 
         console.info("num-btn", target)
         curDisplay.textContent += target.textContent 
     }
-
+    // set operator and current display string to memory 
     else if(target.className == "func-btn"){
 
         console.info("func-btn", target)
         num1 = curDisplay.textContent;
-
+        
         if(num1 == ''){
            num1 = 0
         }
-        
+        // set operator and display to memory and clear display
         operator = target.textContent;
         curDisplay.textContent = '';
         historyDisplay.innerHTML = `${num1} ${operator}`;
         hideHistory();
 
     }
+    // clear memory and reset the displays
     else if(target.className == "clear"){
 
         console.info("func-btn", target)
@@ -138,6 +217,7 @@ btnCont.addEventListener('click', (e)=>{
         hideHistory();
 
     }
+    // send display to memory and pass variables in memory to calc fucntion 
     else if(target.className == "submit"){
 
         console.info("func-btn", target)
