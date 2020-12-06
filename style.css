@@ -47,7 +47,13 @@ body{
     transition: 600ms;
 }
 
+#light-toggle{
+    position: relative;
+    top:10px;
+    left:10px;
 
+    max-width: 100px;
+}
 
 #app-container{
     margin: 10% auto;
